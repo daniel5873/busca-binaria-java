@@ -10,10 +10,6 @@ public class Principal {
 		//RandomAccessFile f = new RandomAccessFile("cep_ordenado.dat", "r");
 		
 		Endereco e = new Endereco();
-		Scanner scan = new Scanner(System.in);
-		System.out.println("Qual CEP deseja pesquisar?");
-		long cep = Integer.parseInt(scan.nextLine());
-		
 		long menor = 0;
 		long maior = f.length()-1;
 		long meio;
@@ -23,9 +19,9 @@ public class Principal {
 			e.leEndereco(f);
 			System.out.println(e.getCep());
 			long eCep = Integer.parseInt(e.getCep());
-			if(cep < eCep) {
+			if(Integer.parseInt(args[0]) < eCep) {
 				maior = meio - 1;
-			} else if (cep > eCep){
+			} else if (Integer.parseInt(args[0]) > eCep){
 				menor = meio + 1;
 			} else {
 				System.out.println(e.getCep());
